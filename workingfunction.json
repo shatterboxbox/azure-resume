@@ -1,0 +1,56 @@
+{
+    "bindings": [
+        {
+            "notes": "This is the working function.json from getting the input on the todolist",
+            "type": "CosmosDB",
+            "name": "WebsiteCounter",
+            "databaseName": "AzureResume",
+            "containerName": "Counter",
+            "connection": "CosmosDBConnection",
+            "direction": "in",
+            "Id": "{id}",
+            "PartitionKey": "{partitionKeyValue}"
+        },
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "Request",
+            "methods": [
+                "get",
+                "post"
+            ],
+            "route": "todoitems/{partitionKeyValue}/{id}"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "Response"
+        }
+    ],
+    "disabled": false
+}
+
+
+
+this was in cosmosdb
+{
+    "name": "Response",
+    "direction": "out",
+    "type": "cosmosDB",
+    "connection": "CosmosDBConnection",
+    "databaseName": "AzureResume",
+    "containerName": "Counter",
+    "createIfNotExists": false,
+    "partitionKey": "1"
+},
+{
+    "authLevel": "function",
+    "type": "httpTrigger",
+    "direction": "in",
+    "name": "Request",
+    "methods": [
+        "get",
+        "post"
+    ]
+},

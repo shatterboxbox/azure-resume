@@ -1,0 +1,42 @@
+{
+    "bindings": [
+        {
+            "notes": "This is the working function.json from getting the input on the todolist",
+            "type": "CosmosDB",
+            "name": "inputCounter",
+            "databaseName": "AzureResume",
+            "containerName": "Counter",
+            "connection": "CosmosDBConnection",
+            "direction": "in",
+            "Id": "Counter",
+            "PartitionKey": "Counter"
+        },
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "Request",
+            "methods": [
+                "get",
+                "post"
+            ],
+            "route": "todoitems/Counter/Counter"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "Response"
+        },
+        {
+            "name": "outputCounter",
+            "direction": "out",
+            "type": "cosmosDB",
+            "connection": "CosmosDBConnection",
+            "databaseName": "AzureResume",
+            "containerName": "Counter",
+            "createIfNotExists": false,
+            "partitionKey": "Counter"
+        }
+    ],
+    "disabled": false
+}
