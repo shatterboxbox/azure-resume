@@ -6,7 +6,7 @@ const localfunctionApi = "http://localhost:7071/api/todoitems/Counter/Counter";
 const functionApi = "https://getresumecountercelleray.azurewebsites.net/api/todoitems/Counter/Counter?code=64YWdFazRDDMXV7jJssYpez2tJ13saDcxkDHREspOEniAzFuifw18Q%3D%3D"
 
 const getVisitCount = () => {
-    let count = "gello";
+    let count = 1;
     fetch(functionApi)
         .then((response) => {
             return response.json();
